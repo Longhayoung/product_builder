@@ -3,12 +3,42 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hello World</title>
+  <meta name="google-adsense-account" content="ca-pub-4479539572649305">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4479539572649305"
+     crossorigin="anonymous"></script>
+  <title>ProductBuilder | Insightful Articles for Modern Creators</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
   <link href='/style.css' rel='stylesheet'>
 </head>
 <body>
-  <h1>Hello, world!</h1>
-  <button onclick="console.log('hello');">Press me</button>
+  <!-- Custom Blog Header -->
+  <blog-header></blog-header>
+
+  <main class="container">
+    <section style="padding: 4rem 0 2rem 0; text-align: center;">
+      <h1 class="text-gradient" style="font-size: 3.5rem; font-weight: 800; letter-spacing: -2px;">Insights for the next generation of builders.</h1>
+      <p style="font-size: 1.25rem; color: var(--text-secondary); max-width: 600px; margin: 0 auto;">
+        Deep dives into technology, design, and the future of the digital landscape.
+      </p>
+    </section>
+
+    <!-- Blog Feed Container -->
+    <div id="blog-feed" class="blog-feed">
+      <!-- Posts will be dynamically injected here via main.js -->
+    </div>
+
+    <!-- AdSense Placeholder (Optional: Add an ad unit here if needed) -->
+    <section style="margin: 4rem 0; text-align: center; background: var(--surface); padding: 2rem; border-radius: var(--radius-md); border: 1px dashed var(--border);">
+      <p style="color: var(--text-secondary); font-size: 0.8rem;">ADVERTISEMENT</p>
+      <!-- <ins class="adsbygoogle" ... ></ins> -->
+    </section>
+  </main>
+
+  <!-- Custom Blog Footer -->
+  <blog-footer></blog-footer>
+
   <script defer type="text/javascript" src="/main.js"></script>
 </body>
 </html>

@@ -1,1 +1,106 @@
-/* Add styles here */
+@layer base, components, utilities;
+
+@layer base {
+  :root {
+    /* Color Palette (OKLCH) */
+    --primary: oklch(65.57% 0.19 252.73);
+    --primary-light: oklch(75% 0.15 250);
+    --secondary: oklch(62.42% 0.19 14.93);
+    --accent: oklch(85% 0.2 100);
+    --background: oklch(98.5% 0.01 250);
+    --surface: oklch(100% 0 0);
+    --text-primary: oklch(25% 0.02 250);
+    --text-secondary: oklch(45% 0.02 250);
+    --border: oklch(90% 0.02 250);
+    
+    /* Spacing & Layout */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 2.5rem;
+    --container-max-width: 1100px;
+    --header-height: 70px;
+
+    /* Shadows */
+    --shadow-soft: 0 4px 12px oklch(0% 0 0 / 5%);
+    --shadow-deep: 0 10px 30px oklch(0% 0 0 / 10%);
+    --shadow-glow: 0 0 20px oklch(65.57% 0.19 252.73 / 20%);
+    
+    /* Border Radius */
+    --radius-sm: 8px;
+    --radius-md: 16px;
+    --radius-lg: 24px;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background-color: var(--background);
+    color: var(--text-primary);
+    line-height: 1.6;
+    overflow-x: hidden;
+    /* Subtle noise texture */
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    background-blend-mode: soft-light;
+    opacity: 0.98;
+  }
+
+  h1, h2, h3, h4 {
+    color: var(--text-primary);
+    line-height: 1.2;
+    margin-bottom: var(--spacing-sm);
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+@layer components {
+  .container {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+  }
+
+  /* Responsive Blog Feed Grid */
+  .blog-feed {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: var(--spacing-lg);
+    padding: var(--spacing-lg) 0;
+  }
+
+  @container (max-width: 400px) {
+    .blog-feed {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* Shared interactive glow effect */
+  .interactive-glow:hover {
+    box-shadow: var(--shadow-glow);
+    transform: translateY(-4px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .glassmorphism {
+    background: oklch(100% 0 0 / 70%);
+    backdrop-filter: blur(12px);
+    border: 1px solid oklch(100% 0 0 / 20%);
+  }
+}
